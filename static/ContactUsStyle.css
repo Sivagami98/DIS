@@ -1,0 +1,105 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color:#f5f5f5;
+    color:#1c4d31;
+  }
+
+  /* Header */
+  header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c4d31;
+    opacity: 50%;
+    color: #fff;
+    /* padding: 20px; */
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+
+  
+  form {
+    width: auto;
+    margin: 0 auto;
+    /* background-color: #fff; */
+    padding: 20px;
+    box-shadow: 0px 0px 10px #ccc;
+    border-radius: 5px;
+    
+  }
+  
+   label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+   font-size: 1.5em;
+    line-height: 25px;
+    color: #1c4d31;
+  } 
+
+  /* label {
+  
+    width: 150px;
+    height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 2.5em;
+    line-height: 50px;
+  }
+   */
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    line-height: 25px;
+  }
+  
+  select option:first-child {
+    color: #ccc;
+  }
+  
+  button[type="submit"] {
+    background-color: #1c4d31;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="homepage"] ,#Backto
+  {
+    background-color: #1c4d31;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }

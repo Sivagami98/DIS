@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+body {
+    font-family: 'Dancing Script';
+    font-size: x-large;
+  background-color: #f6efe1;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: rgb(228, 71, 87);
+  padding: 3px;
+  text-align: center;
+  color: white;
+  font-family: 'Dancing Script';
+  font-size: 80%;
+  opacity: 40%;
+  border-radius: 10px;
+}
+
+
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+.mySlides {display:none;}
+
+nav {
+        /* background-color: rgba(153, 21, 21, 0.5); */
+        color: rgb(12, 0, 0);
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        background-color: black;
+        opacity: 50%;
+    }
+
+    nav a {
+        float: left;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+
+    }
+
+    nav a:hover {
+        background-color: white;
+
+        opacity: 100%;
+        color: black;
+    }
+
+    /* Style for the collapsing button */
+    .icon {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        float: right;
+        padding: 14px 16px;
+    }
+
+    @media screen and (max-width: 600px) {
+        nav a:not(:first-child) {
+            display: none;
+        }
+
+        nav a.icon {
+            display: block;
+        }
+
+        /* Style for the responsive navigation menu */
+        nav.responsive {
+            position: relative;
+        }
+
+        nav.responsive a.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        nav.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+    }
+</style>
+</head>
+<body>
+  <nav>
+		<a href="{{url_for('home')}}">Home</a>
+		<a href="{{url_for('MainEvents')}}">Events</a>
+		<a href="{{url_for('AboutUS')}}">About Us</a>
+		<a href="{{url_for('Contact')}}">Contact</a>
+		<a href="{{url_for('Ratings')}}">Feedback</a>
+		<a href="{{url_for('Account')}}">Account</a>
+		<a href="#" class="icon" onclick="myFunction()">&#9776;</a>
+	</nav>
+
+	<!-- JavaScript for collapsing the menu bar -->
+	<script>
+		function myFunction() {
+			var x = document.getElementsByTagName("nav")[0];
+			if (x.className === "") {
+				x.className += "responsive";
+			} else {
+				x.className = "";
+			}
+		}
+	</script> 
+  
+<h2 style="padding-left: 40%;">
+  <a href="{{url_for('home')}}"><img src="{{ url_for('static', filename='projpng.png')}}" style="height: 30%;width: 30%;"  alt="" id="logo"></a>
+  
+  </h2>
+
+<div class="header">
+  <h1>Private Events</h1>
+</div>
+
+  
+<div class="row">
+  <div class="col-6 col-s-5 menu">
+    <img class="mySlides" src="{{ url_for('static', filename='holi.jpg')}}" alt="" />
+    <img class="mySlides" src="{{ url_for('static', filename='ganesh.png')}}">
+  <img class="mySlides" src="{{ url_for('static', filename='diwali.png')}}">
+  </div>
+
+  <div class="col-6 col-s-7">
+    <p>Whether it's an engagement celebration that will leave everyone speechless, a surprise Bollywood party that's truly epic, or your favorite festival, we can turn your vision into reality.
+
+      Our team is dedicated to ensuring a stress-free experience from beginning to end. We'll collaborate with the top vendors in the United States and our staff will work tirelessly to ensure your event is effortless and unforgettable.
+        
+        </p>
+        <a href="{{url_for('Contact')}}">
+        <button type="button" onmouseover="style.opacity='80%'" onmouseout="style.opacity='100%'" style="background-color: #1c4d31;opacity: 50%;
+        align-self: center;color: #f6efe1; font-family: 'Dancing Script';
+        height: 40px;width: 200px;font-size: large;margin-left: 30%;border-radius: 10px;">Book your event now!!</button>
+        </a>  
+  </div>
+</div>
+
+<script>
+    var myIndex = 0;
+    carousel();
+    
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}    
+      x[myIndex-1].style.display = "block";  
+      setTimeout(carousel, 2000); 
+    }
+    </script>
+
+<script src="lognew.js"></script>
+
+</body>
+</html>
+
+

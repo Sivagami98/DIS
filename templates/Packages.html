@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+body {
+    font-family: 'Dancing Script';
+    font-size: x-large;
+  background-color: #f6efe1;
+  text-align: justify;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #1c4d31;
+  padding: 3px;
+  text-align: center;
+  color: white;
+  font-family: 'Dancing Script';
+  font-size: 80%;
+  opacity: 40%;
+  border-radius: 10px;
+}
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.column img {
+  margin-top: 12px;
+}
+
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+nav {
+        /* background-color: rgba(153, 21, 21, 0.5); */
+        color: rgb(12, 0, 0);
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        background-color: black;
+        opacity: 50%;
+    }
+
+    nav a {
+        float: left;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+
+    }
+
+    nav a:hover {
+        background-color: white;
+
+        opacity: 100%;
+        color: black;
+    }
+
+    /* Style for the collapsing button */
+    .icon {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        float: right;
+        padding: 14px 16px;
+    }
+
+    @media screen and (max-width: 600px) {
+        nav a:not(:first-child) {
+            display: none;
+        }
+
+        nav a.icon {
+            display: block;
+        }
+
+        /* Style for the responsive navigation menu */
+        nav.responsive {
+            position: relative;
+        }
+
+        nav.responsive a.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        nav.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+    }
+</style>
+</head>
+<body>
+  <nav>
+		<a href="{{url_for('home')}}">Home</a>
+		<a href="{{url_for('MainEvents')}}">Events</a>
+		<a href="{{url_for('AboutUS')}}">About Us</a>
+		<a href="{{url_for('Contact')}}">Contact</a>
+		<a href="{{url_for('Ratings')}}">Feedback</a>
+		<a href="{{url_for('Account')}}">Account</a>
+		<a href="#" class="icon" onclick="myFunction()">&#9776;</a>
+	</nav>
+
+	<!-- JavaScript for collapsing the menu bar -->
+	<script>
+		function myFunction() {
+			var x = document.getElementsByTagName("nav")[0];
+			if (x.className === "") {
+				x.className += "responsive";
+			} else {
+				x.className = "";
+			}
+		}
+	</script>  
+  
+<h2 style="padding-left: 40%;">
+  <a href="{{url_for('home')}}"><img src="{{ url_for('static', filename='projpng.png')}}" style="height: 30%;width: 30%;"  alt="" id="logo"></a>
+  
+  </h2>
+
+
+
+  
+<div class="row">
+  <div class="col-6 col-s-5 menu">
+    <div class="row"> 
+        <div class="column">
+        <img src="{{ url_for('static', filename='packagepic1.jpg')}}" style="width:100%">
+        <img src="{{ url_for('static', filename='packagepic6.jpg')}}" style="width:100%">
+        <img src="{{ url_for('static', filename='package.jpg')}}" style="width:100%">
+        </div>
+        <div class="column">
+        <img src="{{ url_for('static', filename='packagepic2.jpg')}}" style="width:100%">
+        <img src="{{ url_for('static', filename='packagepic4.jpg')}}" style="width:100%">
+        <img src="{{ url_for('static', filename='packagepic3.jpg')}}" style="width:100%">
+        </div> 
+      </div>
+  </div>
+
+  <div class="col-6 col-s-7">
+    <article>
+        <div class="header">
+            <h1>Choose to customize your beautiful rituals, we will make you feel closer to home </h1>
+          </div>
+         <p>Congratulations on finding your life partner! Planning a wedding can be overwhelming and stressful, but our wedding planner package is designed to make the process smooth and enjoyable for you.</p>
+
+         <p>   Our team of experienced wedding planners will collaborate closely with you to create your dream wedding. From discovering the perfect venue to designing your wedding invitations, we'll take care of every detail. Our package includes personalized consultations, vendor recommendations, budget management, timeline creation, and day-of coordination to ensure that your special day is executed flawlessly.</p>
+            
+          <p>  We believe that every wedding should be unique and reflect the couple's personality and style. So, we'll work with you to create a personalized plan tailored to your vision. You can rely on us to handle the details so you can relax and enjoy your special day with your loved ones.</p>
+            
+           <p> Contact us today to learn more about our wedding planner package and how we can turn your wedding dreams into a reality.</p>
+      
+            
+            </p>
+            <a href="{{url_for('Contact')}}">
+            <button type="button" onmouseover="style.opacity='80%'" onmouseout="style.opacity='100%'" style="background-color: #1c4d31;opacity: 50%;
+            align-self: center;color: #f6efe1; font-family: 'Dancing Script';
+            height: 40px;width: 200px;font-size: large;margin-left: 30%;border-radius: 10px;">Book your event now!!</button>
+            </a>
+        
+      </article>  
+  </div>
+</div>
+
+<script src="lognew.js"></script>
+</body>
+</html>
+
+

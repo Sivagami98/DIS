@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>About Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style (1).css')}}" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(247, 239, 224);
+    }
+
+    header {
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1c4d31;
+      opacity: 50%;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 0;
+    }
+
+    /* Flexbox Containers */
+    .container1 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 100px auto;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    .container1-item {
+      flex-basis: 45%;
+      margin-bottom: 30px;
+      text-align: justify;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      margin-left: 3%;
+      margin-right: 2%;
+      margin-bottom: 100px;
+    }
+
+    .container1-item img {
+      width: 100%;
+      height: 200px;
+      max-width: 500px;
+      border-radius: 50%;
+      /* border-color:black; */
+      margin-bottom: 20px;
+      margin-left: 17%;
+      cursor: pointer;
+    }
+
+
+    .container1-item h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      margin-left: 20%;
+    }
+
+    .container1-item p {
+      font-size: 1.0 rem;
+      line-height: 2.0 rem;
+      padding-left: 2%;
+      padding-top: 1%;
+
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1c4d31;
+      opacity: 50%;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer p {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 500px) {
+      .container1 {
+        display: inline;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px 200px;
+        width: 60px;
+        max-width: 500px;
+      }
+
+      .container1-item {
+        margin: 5% auto;
+        transform: scale(0.8);
+      }
+    }
+
+    .meet_team {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+  <style>
+    .card {
+      border-radius: 0;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      border: none;
+      margin-bottom: 20px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: #444444;
+    }
+
+    .card-text {
+      font-size: 16px;
+      color: #777777;
+    }
+
+    .card-img-top {
+      border-top-left-radius: calc(0.25rem - 1px);
+      border-top-right-radius: calc(0.25rem - 1px);
+      height: 200px;
+      object-fit: cover;
+      background: lightblue !important;
+    }
+
+    .img-fluid {
+      width: 150px;
+      height: 170px;
+    }
+
+    .values {
+      display: flex;
+      align-items: baseline;
+      flex-direction: column;
+    }
+
+    @media (max-width: 768px) {
+      .card-img-top {
+        height: 300px;
+      }
+
+      .card-img-top .img-fluid {
+        width: 220px;
+        height: 200px;
+      }
+    }
+  </style>
+  <script>
+    function addAnimation(card) {
+      card.classList.add('animate__animated', 'animate__bounce');
+    }
+  
+    function removeAnimation(card) {
+      card.classList.remove('animate__animated', 'animate__bounce');
+    }
+  </script>
+
+</head>
+
+<body>
+  <header style="text-align: center;">
+    <h1 style="text-align: center;">About Us</h1>
+    <h2 style="text-align: center;"><a href="{{url_for('home')}}"style="color:white">Home</a></h2>
+  </header>
+  <div class="container1">
+    <div class="box" style="text-align: justify;">
+      <h2>Our History</h2>
+      <p style="margin-bottom: 10px;">Jashn-e-desi was founded in 2020 by 4 enthusiastic youngsters, who had a passion
+        for creating memorable and impactful events. Starting with a small team of 4, the company focused on providing
+        end-to-end event management services to corporate clients in India.</p>
+      <p style="margin-bottom: 10px;">In the early years, the company faced several challenges including fierce
+        competition and a lack of brand recognition. However, with a focus on delivering high-quality events and
+        building strong relationships with clients, Jashn-e-desi Event Management gradually grew in size and reputation.
+      </p>
+      <p style="margin-bottom: 10px;">By 2022, the company had expanded its service offerings to include weddings and
+        social events. This move proved to be successful and helped the company gain a foothold in the highly
+        competitive wedding planning market in India.</p>
+      <p style="margin-bottom: 10px;">Today, Jashn-e-desi is one of the people’s preferred event organisers, with a team
+        of over 50 employees and a portfolio of successful events across the country. The company continues to focus on
+        delivering innovative and engaging events, while maintaining its commitment to quality and customer
+        satisfaction."</p>
+    </div>
+    <div class="box">
+      <h2>Our Mission</h2>
+      <p>Our mission is to create unforgettable events that exceed our clients' expectations. We strive to bring
+        creativity, innovation, and attention to detail to every project we undertake. We aim to provide exceptional
+        customer service and personalized solutions that cater to the unique needs of each client. Our goal is to be
+        recognized as a leading event management company that consistently delivers high-quality events and establishes
+        long-term partnerships with our clients.</p>
+    </div>
+    <div class="box" style="text-align: justify; line-height: 1.5;">
+      <h2>Our Values</h2>
+      <div class="values">
+        <p><strong>Creativity:</strong> We value creative solutions that engage and inspire audiences, and help our
+          clients stand out from the competition.</p>
+        <p><strong>Integrity:</strong> We believe in doing business with honesty, transparency, and fairness. We strive
+          to
+          build lasting relationships with our clients and partners based on trust and respect.</p>
+        <p><strong>Excellence:</strong> We are committed to delivering high-quality events that meet or exceed our
+          clients' expectations. We pay attention to every detail and aim to exceed standards in everything we do.</p>
+        <p><strong>Collaboration:</strong> We believe that teamwork and collaboration are essential to creating
+          successful
+          events. We work closely with our clients and partners to ensure that everyone is on the same page and working
+          towards the same goals.</p>
+        <p><strong>Innovation:</strong> We are always looking for new and innovative ways to deliver exceptional events.
+          We embrace new technologies and techniques that can help us create memorable experiences for our clients and
+          their audiences.</p>
+      </div>
+    </div>
+
+
+    <div class="meet_team">
+      <br><br>
+      <h1>Our Team</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-5">
+          <div class="card h-100" onmouseover="addAnimation(this)" onmouseout="removeAnimation(this)">
+            <div class="card-img-top bg-light d-flex justify-content-center align-items-center">
+              <img src="https://i.ibb.co/dP60xgs/Microsoft-Teams-image.jpg" alt="Card image cap"
+                class="img-fluid rounded-square">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Keerthi Rayapati</h5>
+              <p class="card-text">
+              <ul>
+                  <p style="text-align: justify;">I created a Contact Us form for our project that includes input fields for personal information,
+                  such as name, email, contact number, type of event, and event date.
+                  Using my skills in CSS styling, you added a professional touch to the form, making it more visually
+                  appealing.By collaborating with my team members, communicating clearly and dividing tasks, I learned the
+                  importance of teamwork in achieving project goals. My contributions were crucial in completing the project on time and to a high standard.
+                  My active involvement in creating the Contact Us form and working effectively within the team
+                  demonstrated my technical expertise, strong communication skills and ability to work collaboratively
+                  towards common goals.
+                  As part of my role in developing the Jashn-e-desi event management platform, I worked closely with the development team to integrate the website's front-end into a Flask environment.</p>
+              </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+          <div class="card h-100" onmouseover="addAnimation(this)" onmouseout="removeAnimation(this)">
+            <div class="card-img-top bg-light d-flex justify-content-center align-items-center">
+              <img src="https://i.ibb.co/st6zHSg/Sivagami-photo.jpg" alt="Card image cap"
+                class="img-fluid rounded-square special">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Sivagami Bhaskar</h5>
+              <p class="card-text">
+              <ul>
+                <p style="text-align: justify;">As a front-end developer on this project, I was responsible for developing the HTML structure and
+                  ensuring the site was visually appealing and easy to navigate.
+                  Creating the HTML template for the site, incorporating best practices for accessibility and
+                  attractive visual designs.
+                  Implementing responsive design techniques to ensure the site looked great on devices.
+                  Overall, I am proud of the contribution I made to this project and believe that my HTML development
+                  skills were instrumental in creating a visually stunning and functional website for our client.
+                  Also, coordinated with the team to integrate the webpages in Flask for routing appropriate functions that handle requests and return responses. This ensured that the website's pages and content were properly served to users ensuring that it was visually stunning, easy to navigate, and secure for users.</p>
+              </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+          <div class="card h-100" onmouseover="addAnimation(this)" onmouseout="removeAnimation(this)">
+            <div class="card-img-top bg-light d-flex justify-content-center align-items-center">
+              <img src="https://i.ibb.co/pZvC7qT/Microsoft-Teams-image-1.jpg" alt="Card image cap"
+                class="img-fluid rounded-square special">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Akanksha Kottakota</h5>
+              <p class="card-text">
+              <ul>
+                <p style="text-align: justify;">I am thrilled to have been a part of this project. My primary responsibility was to design the pages
+                  that showcased the diverse range of events organized by the company.
+                  In order to ensure that the website was visually engaging and user-friendly, I meticulously selected
+                  appropriate color schemes, typography, and images that perfectly aligned with the overall brand image
+                  and messaging.
+                  Through this process, I not only honed my design skills, but also gained a deeper understanding of
+                  how to create an effective and cohesive visual identity that captures the essence of the project.
+                  Overall, this project was an incredible opportunity for me to expand my knowledge and apply my
+                  skills in a meaningful way.</p>
+              </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+          <div class="card h-100" onmouseover="addAnimation(this)" onmouseout="removeAnimation(this)">
+            <div class="card-img-top bg-light d-flex justify-content-center align-items-center">
+              <img src="https://i.ibb.co/R03kFgk/Microsoft-Teams-image-1.jpg" alt="Card image cap"
+                class="img-fluid rounded-square">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Zakeer Ahmed Shaik</h5>
+              <p class="card-text">
+              <ul>
+                <p style="text-align: justify;">As the webpage developer for this desi event management website, I had the important responsibility
+                  of creating a design strategy that aligned with the desi event theme and target audience.
+                  To achieve this, I participated in multiple brainstorming sessions, shared ideas and feedback, and
+                  collaborated with the team to ensure that the final product met the project objectives.
+                  During this process, I developed a keen eye for detail and made sure to implement the latest design
+                  trends and best practices to enhance the user experience.
+                  Moreover, this project provided me with invaluable experience that will be beneficial in my future
+                  projects and endeavors. I gained valuable skills and knowledge in web development, design, and project
+                  management, which will help me tackle new challenges with confidence and competence.</p>
+              </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+</html>

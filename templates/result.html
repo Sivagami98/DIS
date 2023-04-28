@@ -1,0 +1,60 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Result</title>
+</head>
+<body>
+    <h1>{{msg}}</h1>
+    <a href="{{url_for('login')}}"><button>Back to login </button></a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Result</title>
+<style>
+        body {
+            background-image:"{{ url_for('static', filename='gh2.jpeg')}}";
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 3em;
+            margin-top: 50px;
+        }
+        button {
+            display: block;
+            margin: 50px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            button {
+                font-size: 1em;
+                padding: 5px 10px;
+            }
+        }
+</style>
+
+</head>
+<body>
+<h1>{{msg}}</h1>
+
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+body{
+    margin: 3%;
+    background-color: rgb(247, 239, 224);
+}
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+input[type=submit] {
+  background-color:#1c4d31;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 47%;
+  float: right;
+}
+input[type=submit]:hover {
+  background-color: #1c4d31;
+}
+.container {
+  border-radius: 5px;
+  background-color: rgb(247, 239, 224);
+  padding: 20px;
+}
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+#logo{
+  height: 250px;
+  width: 250px;
+  
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+header {
+background-color: rgb(228, 71, 87);
+  padding: 3px;
+  text-align: center;
+  color: white;
+  font-family: 'Dancing Script';
+  font-size: 50px;
+  opacity: 40%;
+  border-radius: 10px;
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+nav {
+        /* background-color: rgba(153, 21, 21, 0.5); */
+        color: rgb(12, 0, 0);
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        background-color: black;
+        opacity: 50%;
+    }
+    nav a {
+        float: left;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    nav a:hover {
+        background-color: white;
+        opacity: 100%;
+        color: black;
+    }
+    /* Style for the collapsing button */
+    .icon {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        float: right;
+        padding: 14px 16px;
+    }
+    @media screen and (max-width: 600px) {
+        nav a:not(:first-child) {
+            display: none;
+        }
+        nav a.icon {
+            display: block;
+        }
+        /* Style for the responsive navigation menu */
+        nav.responsive {
+            position: relative;
+        }
+        nav.responsive a.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        nav.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+    }
+</style>
+</head>
+<body>
+  <nav>
+    <a href="{{url_for('home')}}">Home</a>
+    <a href="{{url_for('MainEvents')}}">Events</a>
+    <a href="{{url_for('AboutUS')}}">About Us</a>
+    <a href="{{url_for('Contact')}}">Contact</a>
+    <a href="{{url_for('Ratings')}}">Feedback</a>
+    <a href="{{url_for('Account')}}">Account</a>
+    <a href="#" class="icon" onclick="myFunction()">&#9776;</a>
+  </nav>
+  <!-- JavaScript for collapsing the menu bar -->
+  <script>
+    function myFunction() {
+      var x = document.getElementsByTagName("nav")[0];
+      if (x.className === "") {
+        x.className += "responsive";
+      } else {
+        x.className = "";
+      }
+    }
+  </script>
+  <h2 style="padding-left: 40%;">
+    <a href="{{url_for('home')}}"><img src="{{ url_for('static', filename='projpng.png')}}"  alt="" id="logo"></a>
+  </h2>
+  
+  <header>
+    <p >Feedback </p>
+  </header>
+<h2>We would love your feedback!</h2>
+<div class="container">
+  <form action="{{url_for('addfed')}}" method="POST">
+    <div class="row">
+      <div class="col-25">
+        <label for="name">Full Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="fullname" placeholder="Your name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="eventType">Which event did we host for you?</label>
+      </div>
+      <div class="col-75">
+        
+      <select id="eventType" name="eventoption" required>
+        <option value="">Select event type</option>
+        <option value="Wedding" name="eventoption">Wedding</option>
+        <option value="Private Event" name="eventoption" >Private Event</option>
+        <option value="Birthday" name="eventoption">Birthday</option>
+        <option value="Packages" name="eventoption">Packages</option>
+        <option value="Other" name="eventoption">Other</option>
+      </select>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <label for="ratings">How much would you rate us? (out of 5)</label>
+        </div>
+        <div class="col-75">
+          <input  input type="number" id="rating" name="ratings" min="1" max="5" placeholder="Enter a number between 1 and 5" required>
+        </div>
+      </div>
+    
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Tell us what you loved about your event, or what we could have done better!</label>
+      </div>
+      <div class="col-75">
+        <textarea id="subject" name="subject" placeholder="Tell us!" style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+  
+</div>
+<div>
+<h4>
+    Check out the average ratings of our previous events!
+</h4>
+</div>
+<div>
+    <canvas id="bar-chart" width="10" height="3"></canvas>
+</div>
+<script>
+  new Chart(document.getElementById("bar-chart"), {
+type: 'bar',
+data: {
+  labels: ["Weddings", "Private Events", "Packages", "Birthdays"],
+  datasets: [
+    {
+      label: "Average ratings",
+      // backgroundColor: ["#1c4d31","#1c4d31","#1c4d31","#1c4d31"],
+      backgroundColor:['rgba(255, 99, 132, 0.5)',
+      'rgba(255, 159, 64, 0.5)',
+      'rgba(255, 205, 86, 0.5)',
+      'rgba(75, 192, 192, 0.5',],
+      data: [5,4.4,4.8,4]
+    }
+  ]
+},
+options: {
+  legend: { display: false },
+  title: {
+    display: true,
+    text: 'Our clients have rated their experinces!'
+  }
+}
+});
+</script>
+<script src="lognew.js"></script>
+</body>
+</html>

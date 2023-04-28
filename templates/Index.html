@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Page</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+
+	<style>
+		/* Style for the background image */
+		#div-test {
+			background-image: url('giff3.gif');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			width: 100%;
+			height: 300px;
+		}
+
+		body {
+			background-color: rgb(247, 239, 224);
+		}
+
+		@media screen and (min-width: 768px) {
+			#div-test {
+				height: 500px;
+			}
+		}
+
+		@media screen and (min-width: 1200px) {
+			#div-test {
+				height: 800px;
+			}
+		}
+
+		/* Style for the navigation menu */
+		nav {
+			/* background-color: rgba(153, 21, 21, 0.5); */
+			color: rgb(12, 0, 0);
+			overflow: hidden;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 1;
+			background-color: black;
+			opacity: 50%;
+		}
+
+		nav a {
+			float: left;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 17px;
+
+		}
+
+		nav a:hover {
+			background-color: white;
+
+			opacity: 100%;
+			color: black;
+		}
+
+		/* Style for the collapsing button */
+		.icon {
+			display: none;
+			font-size: 24px;
+			cursor: pointer;
+			float: right;
+			padding: 14px 16px;
+		}
+
+		@media screen and (max-width: 600px) {
+			nav a:not(:first-child) {
+				display: none;
+			}
+
+			nav a.icon {
+				display: block;
+			}
+
+			/* Style for the responsive navigation menu */
+			nav.responsive {
+				position: relative;
+			}
+
+			nav.responsive a.icon {
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+
+			nav.responsive a {
+				float: none;
+				display: block;
+				text-align: left;
+			}
+		}
+
+
+
+
+		.container1 {
+			max-width: 1500px;
+			height: 1%;
+			margin: 0 auto;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			background-color: red;
+			opacity: 50%
+		}
+
+
+
+		p {
+			margin: 0;
+			font-size: 14px;
+		}
+
+		.flex-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		.responsive-video {
+			max-width: 100%;
+			height: auto;
+		}
+
+		#video-container {
+			text-align: center;
+		}
+
+		.flex-item {
+			flex-basis: 30%;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<nav>
+		<a href="{{url_for('home')}}">Home</a>
+		<a href="{{url_for('MainEvents')}}">Events</a>
+		<a href="{{url_for('AboutUS')}}">About Us</a>
+		<a href="{{url_for('Contact')}}">Contact</a>
+		<a href="{{url_for('Ratings')}}">Feedback</a>
+		<a href="{{url_for('Account')}}">Account</a>
+		<a href="#" class="icon" onclick="myFunction()">&#9776;</a>
+	</nav>
+
+	<!-- JavaScript for collapsing the menu bar -->
+	<script>
+		function myFunction() {
+			var x = document.getElementsByTagName("nav")[0];
+			if (x.className === "") {
+				x.className += "responsive";
+			} else {
+				x.className = "";
+			}
+		}
+	</script>
+	<div id="div-test">
+
+		<script>
+			var images = ["{{ url_for('static', filename='giff3.gif')}}","{{ url_for('static', filename='ghh2.jpeg')}}","{{ url_for('static', filename='giff1.gif')}}","{{ url_for('static', filename='giff4.gif')}}" ]; // Array of images
+			var i = 0; // Index of current image
+
+			function changeBackground() {
+				document.getElementById('div-test').style.backgroundImage = "url('" + images[i] + "')";
+				i = (i + 1) % images.length;
+			}
+
+			setInterval(changeBackground, 2000); // Change background image every 1 second
+		</script>
+	</div>
+	<!-- Content below the background image -->
+	<div class="content" , style="margin-top: 5%;">
+		<h1 style="text-align:center;font-family: Dancing Script;">Jashn-e-Desi</h1>
+		<h2 style="text-align:center;font-family: Dancing Script;">Your vision, our expertise - the perfect combination.
+			<br> Personalized events that reflect your unique style.<br> From planning to inviting, we've got you
+			covered.
+		</h2>
+		<p class="special" style="text-align:justify;font-size:large;">
+
+			We celebrate the vibrant and colorful culture of South Asia!
+
+			We are a team of passionate individuals who believe in promoting the rich and diverse heritage
+			of the
+			Desi
+			community. Our website is the ultimate hub for all things Desi, featuring a wide range of
+			events,
+			festivals,
+			and activities that showcase the unique traditions, music, food, and art of the region.
+
+
+			Whether you are looking to attend a colorful Holi festival, enjoy the delicious flavors of a
+			Biryani
+			cook-off, dance to the beats of a Bhangra party, or explore the intricate designs of mehndi
+			tattoos, our
+			website has got you covered. We provide a platform for both established and emerging Desi
+			artists and
+			performers to showcase their talents and share their stories.
+
+			We also offer a wealth of resources and information to help you learn more about Desi culture,
+			including
+			articles, videos, and interviews with community leaders and experts. Whether you are a Desi or
+			simply
+			someone who is curious about this rich and fascinating culture, our website is the perfect place
+			to
+			connect,
+			learn, and celebrate.
+
+			So come and join us on this exciting journey as we explore the vibrant world of Desi culture
+			together!
+			Whether you are looking to attend a colorful Holi festival, enjoy the delicious flavors of a
+			Biryani
+			cook-off, dance to the beats of a Bhangra party, or explore the intricate designs of mehndi
+			tattoos, our
+			website has got you covered. We provide a platform for both established and emerging Desi
+			artists and
+			performers to showcase their talents and share their stories.
+
+
+
+		</p>
+	</div>
+	<h2 style="font-family:Dancing Script; margin-left: 45%;">Upcoming events</h2>
+
+	<div class="flex-container" style="margin-left: 10%;">
+		<div class="flex-item"> <img src="{{ url_for('static', filename='holi-gif.gif')}}" width="250" height="150"> <br>
+			<h3> HOLI!</h3>
+			<p>Date: May 28th, 2023</p>
+			<p> &#128205; Tampa</p> <a href="contact.html"><button type="button" onmouseover="style.opacity='100%'"
+					onmouseout="style.opacity='80%'"
+					style="background-color: #1c4d31;opacity: 50%;align-self: center;color: #f6efe1; font-family: 'Dancing Script';height: 40px;width: 150px;font-size: large;margin-left: 20%;border-radius: 10px;">Book
+					Tickets!!</button></a>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-6">
+						<div class="card text-center">
+							<div class="card-body">
+								<p class="card-text">We will see you in:</p>
+								<div id="countdown1" class="display-4"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="flex-item"> <img src="{{ url_for('static', filename='gangif.gif')}}" width="250" height="150"> <br>
+			<h3> Ganesh chaturthi!</h3>
+			<p>Date: September 18th, 2023</p>
+			<p> &#128205; Boston</p> <a href="contact.html"><button type="button" onmouseover="style.opacity='100%'"
+					onmouseout="style.opacity='80%'"
+					style="background-color: #1c4d31;opacity: 50%;align-self: center;color: #f6efe1; font-family: 'Dancing Script';height: 40px;width: 150px;font-size: large;margin-left: 20%;border-radius: 10px;">Book
+					Tickets!!</button></a>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-6">
+						<div class="card text-center">
+							<div class="card-body">
+								<p class="card-text">We will see you in:</p>
+								<div id="countdown2" class="display-4"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="flex-item"> <img src="{{ url_for('static', filename='diwgif2.gif')}}" width="250" height="150"> <br>
+			<h3> Diwai!</h3>
+			<p>Date: October 25th, 2023</p>
+			<p> &#128205; Dallas</p> <a href="contact.html"><button type="button" onmouseover="style.opacity='100%'"
+					onmouseout="style.opacity='80%'"
+					style="background-color: #1c4d31;opacity: 50%;align-self: center;color: #f6efe1; font-family: 'Dancing Script';height: 40px;width: 150px;font-size: large;margin-left: 20%;border-radius: 10px;">Book
+					Tickets!!</button></a>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-6">
+						<div class="card text-center">
+							<div class="card-body">
+								<p class="card-text">We will see you in:</p>
+								<div id="countdown3" class="display-4"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="video-container">
+		<video autoplay loop muted class="responsive-video">
+			<source src="{{ url_for('static', filename='video2.mp4')}}" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+
+	<footer style="margin-top:5%">
+		<div class="container1">
+			<img src="{{ url_for('static', filename='projpng.png')}}" alt="Logo" style="width:5%;height:5%">
+			<p>&copy; 2023 My Company. All rights reserved.</p>
+		</div>
+	</footer>
+
+	<script>
+		function startTimer(targetDate, display) {
+			setInterval(function () {
+				var currentDate = new Date().getTime();
+				var distance = targetDate - currentDate;
+
+				var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+				var hours = Math.floor(
+					(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+				);
+				var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+				display.textContent =
+					days +
+					" days " +
+					hours +
+					" hours " +
+					minutes +
+					" minutes " +
+					seconds +
+					" sec ";
+
+				if (distance < 0) {
+					clearInterval(intervalId);
+					display.textContent = "EXPIRED";
+				}
+			}, 1000);
+		}
+
+		window.onload = function () {
+			var countdown1 = document.getElementById("countdown1");
+			var countdown2 = document.getElementById("countdown2");
+			var countdown3 = document.getElementById("countdown3");
+			var targetDate1 = new Date("May 28, 2023 00:00:00").getTime();
+			var targetDate2 = new Date("Sep 18, 2023 00:00:00").getTime();
+			var targetDate3 = new Date("Oct 25, 2023 00:00:00").getTime();
+			startTimer(targetDate1, countdown1);
+			startTimer(targetDate2, countdown2);
+			startTimer(targetDate3, countdown3);
+		};
+	</script>
+
+
+</body>
+
+</html>
